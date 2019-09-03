@@ -1,0 +1,1854 @@
+﻿<src:usrBase x:Class="PCInfo.Plus.Main.UI.Movimentos.NotaFiscal.usrEmissaoNFe"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:src="clr-namespace:PCInfo.Base;assembly=PCInfo.Base"
+             xmlns:local="clr-namespace:PCInfo.Plus.Main.UI.Movimentos.NotaFiscal"
+             xmlns:Controles="clr-namespace:PCInfo.Controles;assembly=PCInfo.Controles"
+             mc:Ignorable="d" Width="1274.485" Height="617.5">
+    <Grid HorizontalAlignment="Left" Height="612" Margin="10,10,0,-4" VerticalAlignment="Top" Width="1264">
+        <GroupBox Header="" HorizontalAlignment="Left" Margin="0,-6,0,0" VerticalAlignment="Top" Height="57" Width="1262" BorderBrush="#FF010A0F"/>
+        <TextBlock x:Name="txtStatus" HorizontalAlignment="Left" Margin="76,13,0,0" Foreground="Blue" TextWrapping="Wrap" Text="Aguardando Envio"  VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="300,12,0,0" TextWrapping="Wrap" Text="Origem Nfe:" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Button x:Name="btnVisualizarDanfe" Content="Visualizar DANFE" HorizontalAlignment="Left" Margin="964,13,0,0" VerticalAlignment="Top" Width="128" Click="btnVisualizarDanfe_Click"/>
+        <Button x:Name="btnTransmitir" Content="Transmitir NF-e" HorizontalAlignment="Left" Margin="1103,13,0,0" VerticalAlignment="Top" Width="117" Click="btnTransmitir_Click"/>
+        <Button x:Name="btnSalvar" Content="Salvar NF-e" HorizontalAlignment="Left" Margin="858,13,0,0" VerticalAlignment="Top" Width="94" Click="btnSalvar_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="7,13,0,0" TextWrapping="Wrap" Text="Status:" VerticalAlignment="Top" FontWeight="Bold"/>
+        <GroupBox Header="NF_e" HorizontalAlignment="Left" Margin="0,52,0,0" VerticalAlignment="Top" Height="102" Width="1262" BorderBrush="#FF010A0F"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="11,71,0,0" TextWrapping="Wrap" Text="Chave NF-e:" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="11,95,0,0" TextWrapping="Wrap" Text="Nro Nota:" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="10,123,0,0" TextWrapping="Wrap" Text="Natureza Op:" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Controles:TextBoxCustomizado x:Name="txtChave" HorizontalAlignment="Left" Height="23" Margin="121,68,0,0" MensagemObrigatoria="Campo Obrigatório" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" IsReadOnly="True"/>
+        <Controles:TextBoxCustomizado x:Name="txtNumeroNota" TipoControle="Numerico" MensagemObrigatoria="Campo Obrigatório" HorizontalAlignment="Left" Height="23" Margin="121,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114"/>
+        <TextBox x:Name="txtNaturezaOperacao" HorizontalAlignment="Left" Height="23" Margin="121,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348"/>
+        <TextBlock HorizontalAlignment="Left" Margin="266,95,0,0" TextWrapping="Wrap" Text="Nro Série:" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Controles:TextBoxCustomizado x:Name="txtNumeroSerie" TipoControle="Numerico" MensagemObrigatoria="Cambo Obrigatório!" HorizontalAlignment="Left" Height="23" Margin="346,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123"/>
+        <TextBlock HorizontalAlignment="Left" Margin="571,71,0,0" TextWrapping="Wrap" Text="Data Emissão:" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Controles:TextBoxCustomizado TipoControle="Data" x:Name="txtDataEmissao" HorizontalAlignment="Left" Height="23" Margin="666,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128"/>
+        <TextBlock HorizontalAlignment="Left" Margin="571,95,0,0" TextWrapping="Wrap" Text="Tipo Emissão:" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Controles:ComboBoxCustomizado MensagemObrigatoria="Campo Obrigatório!" x:Name="cboTipoEmissao" HorizontalAlignment="Left" Margin="666,94,0,0" VerticalAlignment="Top" Width="150"/>
+        <TextBlock HorizontalAlignment="Left" Margin="571,121,0,0" TextWrapping="Wrap" Text="Finalidade:" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ComboBox x:Name="cboFinalidade" HorizontalAlignment="Left" Margin="666,120,0,0" VerticalAlignment="Top" Width="150" SelectionChanged="CboFinalidade_SelectionChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="931,71,0,0" TextWrapping="Wrap" Text="Data Saída:" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Controles:TextBoxCustomizado TipoControle="Data" x:Name="txtDataSaida" HorizontalAlignment="Left" Height="23" Margin="1026,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128"/>
+        <TextBlock HorizontalAlignment="Left" Margin="931,95,0,0" TextWrapping="Wrap" Text="Tipo Nota:" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Controles:ComboBoxCustomizado MensagemObrigatoria="Campo Obrigatório!" x:Name="cboTipoNota" HorizontalAlignment="Left" Margin="1026,94,0,0" VerticalAlignment="Top" Width="150" SelectionChanged="cboTipoNota_SelectionChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="931,121,0,0" TextWrapping="Wrap" Text="Ambiente:" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Controles:ComboBoxCustomizado MensagemObrigatoria="Campo Obrigatório!" x:Name="cboAmbiente" HorizontalAlignment="Left" Margin="1026,120,0,0" VerticalAlignment="Top" Width="150"/>
+        <TabControl x:Name="tbcGeral" HorizontalAlignment="Left" Height="411" Margin="0,159,0,0" VerticalAlignment="Top" Width="1262">
+            <TabItem x:Name="tbiCabecalho" Header="Cabeçalho" FontWeight="Bold" IsSelected="True">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FFF9F9F9" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Background="#FFF9F9F9" Margin="0,0,-3,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="160*"/>
+                        <ColumnDefinition Width="1111*"/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox x:Name="gbxDadosEmitente" Header="Dados Emitente" HorizontalAlignment="Left" Margin="2,2,0,0" VerticalAlignment="Top" Width="1234" Height="150" BorderBrush="#FF01090E" Grid.ColumnSpan="2">
+                        <TextBlock x:Name="textBlock7" HorizontalAlignment="Left" Margin="785,18,0,0" TextWrapping="Wrap" Text="Insc. Estadual:" VerticalAlignment="Top"/>
+                    </GroupBox>
+                    <Controles:TextBoxCustomizado x:Name="txtRazaoSocial" HorizontalAlignment="Left" MensagemObrigatoria="Campo Obrigatório" TabIndex="13" Height="24" Margin="108,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="659" FontWeight="Normal" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" Margin="22,69,0,0" TextWrapping="Wrap" Text="CPF/CNPJ:" VerticalAlignment="Top"/>
+                    <Controles:TextBoxCustomizado x:Name="txtCpfCnpjEmitente" MensagemObrigatoria="Campo Obrigatório" TabIndex="14" HorizontalAlignment="Left" Height="24" Margin="109,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="191" FontWeight="Normal" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="textBlock5_Copy1" HorizontalAlignment="Left" Margin="147,67,0,0" TextWrapping="Wrap" Text="Endereço:" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Controles:TextBoxCustomizado x:Name="txtEndereco" MensagemObrigatoria="Campo Obrigatório" TabIndex="15" HorizontalAlignment="Left" Height="24" Margin="210,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" FontWeight="Normal" Grid.Column="1"/>
+                    <TextBlock x:Name="textBlock5_Copy2" HorizontalAlignment="Left" Margin="22,95,0,0" TextWrapping="Wrap" Text="Bairro:" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlock5_Copy" HorizontalAlignment="Left" Margin="149,99,0,0" TextWrapping="Wrap" Text="Cidade:" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Controles:TextBoxCustomizado x:Name="txtCidade" MensagemObrigatoria="Campo Obrigatório" TabIndex="17" HorizontalAlignment="Left" Height="23" Margin="209,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="252" FontWeight="Normal" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="475,99,0,0" TextWrapping="Wrap" Text="Estado:" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Controles:TextBoxCustomizado x:Name="txtEstado" MensagemObrigatoria="Campo Obrigatório" HorizontalAlignment="Left" TabIndex="18" Height="23" Margin="531,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" FontWeight="Normal" Grid.Column="1"/>
+                    <TextBlock x:Name="textBlock6" HorizontalAlignment="Left" Margin="22,40,0,0" TextWrapping="Wrap" Text="Razão Social:" VerticalAlignment="Top"/>
+                    <Controles:TextBoxCustomizado x:Name="txtBairro" MensagemObrigatoria="Campo Obrigatório" TabIndex="16" HorizontalAlignment="Left" Height="23" Margin="108,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" FontWeight="Normal" Grid.ColumnSpan="2"/>
+                    <Controles:TextBoxCustomizado x:Name="txtInscricaoEstadual" MensagemObrigatoria="Campo Obrigatório" TabIndex="19" HorizontalAlignment="Left" Height="23" Margin="741,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294" FontWeight="Normal" Grid.Column="1"/>
+                    <TextBlock x:Name="textBlock8" HorizontalAlignment="Left" Margin="643,67,0,0" TextWrapping="Wrap" Text="CEP:" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Controles:TextBoxCustomizado TipoControle="CEP" MensagemObrigatoria="Campo Obrigatório" TabIndex="20" x:Name="txtCep" HorizontalAlignment="Left" Height="23" Margin="741,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294" FontWeight="Normal" Grid.Column="1"/>
+                    <TextBlock x:Name="textBlock9" HorizontalAlignment="Left" Margin="643,98,0,0" TextWrapping="Wrap" Text="Telefone:" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Controles:TextBoxCustomizado TipoControle="Telefone"  MensagemObrigatoria="Campo Obrigatório" TabIndex="21" x:Name="txtTelefone" HorizontalAlignment="Left" Height="23" Margin="741,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294" FontWeight="Normal" Grid.Column="1"/>
+                    <GroupBox x:Name="groupBox1" Header="Dados Destinatário" HorizontalAlignment="Left" Margin="2,174,0,0" VerticalAlignment="Top" Height="164" Width="1234" BorderBrush="#FF00070C" Grid.ColumnSpan="2"/>
+                    <Label x:Name="label" Content="Cliente:" HorizontalAlignment="Left" Margin="19,195,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label1" Content="CPF/CNPJ:" HorizontalAlignment="Left" Margin="19,228,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label2" Content="Endereço:" HorizontalAlignment="Left" Margin="217,229,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Controles:TextBoxCustomizado x:Name="txtenderecoDestinatario" MensagemObrigatoria="Campo Obrigatório!" TabIndex="25" HorizontalAlignment="Left" Height="23" Margin="289,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="323" FontWeight="Normal" Grid.Column="1"/>
+                    <Label x:Name="label3" Content="Bairro:" HorizontalAlignment="Left" Margin="20,257,0,0" VerticalAlignment="Top"/>
+                    <Controles:TextBoxCustomizado x:Name="txtBairroDestinatario" MensagemObrigatoria="Campo Obrigatório!" TabIndex="24" HorizontalAlignment="Left" Height="23" Margin="106,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" FontWeight="Normal" Grid.ColumnSpan="2"/>
+                    <Label x:Name="label4" Content="Cidade:" HorizontalAlignment="Left" Margin="230,253,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Controles:TextBoxCustomizado x:Name="txtcidadeDestinatario" MensagemObrigatoria="Campo Obrigatório!" TabIndex="26" HorizontalAlignment="Left" Height="23" Margin="289,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" FontWeight="Normal" Grid.Column="1"/>
+                    <Label x:Name="label5" Content="Estado:" HorizontalAlignment="Left" Margin="489,255,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Controles:TextBoxCustomizado x:Name="txtEstadoDestinatario" MensagemObrigatoria="Campo Obrigatório!" TabIndex="27" HorizontalAlignment="Left" Height="24" Margin="544,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68" FontWeight="Normal" Grid.Column="1"/>
+                    <Controles:TextBoxCustomizado x:Name="txtEmail" HorizontalAlignment="Left" MensagemObrigatoria="Campo Obrigatório!" TabIndex="28" Height="23" Margin="106,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="663" FontWeight="Normal" Grid.ColumnSpan="2"/>
+                    <Label x:Name="label6" Content="E-mial:" HorizontalAlignment="Left" Margin="20,283,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label7" Content="Contribuinte ICMS:" HorizontalAlignment="Left" Margin="645,281,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Controles:TextBoxCustomizado x:Name="txtCpfCnpjDestinatario" TabIndex="23" MensagemObrigatoria="Campo Obrigatório!" HorizontalAlignment="Left" Height="23" Margin="107,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193" FontWeight="Normal" Grid.ColumnSpan="2"/>
+                    <Controles:usrConsultaControle x:Name="uscClienteDestinatario"
+                        TabIndex="22"
+                        Margin="107,195,0,0"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        Width="661"
+                        MensagemObrigatoria="Campo Obrigatório!"
+                        HorizontalAlignment="Left"
+                        FontWeight="Normal" EventoCodigoAlterado="uscClienteDestinatario_EventoCodigoAlterado" Grid.ColumnSpan="2" />
+                    <Label x:Name="label8" Content="Insc. Estadual:" HorizontalAlignment="Left" Margin="645,192,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Controles:TextBoxCustomizado x:Name="txtInscricaoEstadualDestinatario" MensagemObrigatoria="Campo Obrigatório!" TabIndex="29" HorizontalAlignment="Left" Height="23" Margin="772,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263" FontWeight="Normal" Grid.Column="1"/>
+                    <Label x:Name="label9" Content="CEP:" HorizontalAlignment="Left" Margin="645,221,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Controles:TextBoxCustomizado TipoControle="CEP" TabIndex="30" MensagemObrigatoria="Campo Obrigatório!" x:Name="txtCEPDestinatario" HorizontalAlignment="Left" Height="23" Margin="772,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263" FontWeight="Normal" Grid.Column="1"/>
+                    <Label x:Name="label10" Content="Telefone:" HorizontalAlignment="Left" Margin="645,250,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Controles:TextBoxCustomizado TipoControle="Telefone" TabIndex="31" MensagemObrigatoria="Campo Obrigatório!" x:Name="txtTelefoneDestinatario" HorizontalAlignment="Left" Height="23" Margin="772,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263" FontWeight="Normal" Grid.Column="1"/>
+                    <Controles:ComboBoxCustomizado MensagemObrigatoria="Campo Obrigatório" TabIndex="32" x:Name="cboContribuinteIcmsDestinatario" HorizontalAlignment="Left" Margin="772,284,0,0" VerticalAlignment="Top" Width="263" FontWeight="Normal" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tbiReferenciaDevolucao" Header="Referências NFe" FontWeight="Bold">
+                <Grid Background="#FFF7F6F6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="177*"/>
+                        <ColumnDefinition Width="1079*"/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox x:Name="groupBox2" Header="" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="348" Width="1230" BorderBrush="#FF00090E" Grid.ColumnSpan="2"/>
+                    <RadioButton x:Name="rdbDevolucaoNota" Content="Devolução de NF-e" HorizontalAlignment="Left" Margin="56,17,0,0" VerticalAlignment="Top" Checked="rdbDevolucaoNota_Checked" Height="25" Width="126" Grid.ColumnSpan="2"/>
+                    <RadioButton x:Name="rdbDevolucaoCupom" Content="Devolução de Cupom Fiscal" HorizontalAlignment="Left" Margin="52,17,0,0" VerticalAlignment="Top" Checked="rdbDevolucaoCupom_Checked" Height="25" Width="173" Grid.Column="1"/>
+                    <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="267" Margin="56,62,0,0" VerticalAlignment="Top" Width="1124" Grid.ColumnSpan="2">
+                        <TabItem x:Name="tbiNfe" Header="NF-e">
+                            <Grid Background="White">
+                                <Controles:DataGridCustomizado x:Name="dgChaveReferencia" IsTabStop="False"
+                                                   IsReadOnly="True"
+                                                   Background="Transparent"
+                                                   AutoGenerateColumns="False"
+                                                   CanUserAddRows="False"
+                                                   HorizontalAlignment="Left"
+                                                   ScrollViewer.CanContentScroll="True"
+                                                   ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                                   ScrollViewer.HorizontalScrollBarVisibility="Auto" Margin="16,55,0,0"
+                                                   VerticalAlignment="Top" 
+                                                   Height="156"
+                                                   Width="1064" PreviewKeyDown="dgChaveReferencia_PreviewKeyDown" MouseDoubleClick="dgChaveReferencia_MouseDoubleClick">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Chave"
+                                            IsReadOnly="True"
+                                            Binding="{Binding Path=Chave}" />
+                                    </DataGrid.Columns>
+                                </Controles:DataGridCustomizado>
+                                <Label x:Name="label11" Content="Nota de Referência:" HorizontalAlignment="Left" Margin="14,10,0,0" VerticalAlignment="Top"/>
+                                <Controles:TextBoxCustomizado x:Name="txtchaveReferencia" TipoControle="Numerico" MaxLength="44" HorizontalAlignment="Left" Height="23" Margin="142,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="404" FontWeight="Normal"/>
+                                <Button x:Name="btnAdicionarChave" Content="Adicionar" HorizontalAlignment="Left" Margin="570,12,0,0" VerticalAlignment="Top" Width="105" Click="btnAdicionarChave_Click_1"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tbiCupom" Header="Cupom Fiscal">
+                            <Grid Background="White">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="161*"/>
+                                    <ColumnDefinition Width="957*"/>
+                                </Grid.ColumnDefinitions>
+                                <ComboBox x:Name="cboModeloEcf" HorizontalAlignment="Left" Margin="103,22,0,0" VerticalAlignment="Top" Width="67" FontWeight="Normal" Grid.ColumnSpan="2"/>
+                                <Label x:Name="label15" Content="Modelo ECF:" HorizontalAlignment="Left" Margin="16,19,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label25" Content="COO:" HorizontalAlignment="Left" Margin="437,19,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                                <Label x:Name="label26" Content="Nº Sequencial ECF:" HorizontalAlignment="Left" Margin="73,19,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                                <Controles:TextBoxCustomizado x:Name="txtCoo" TipoControle="Numerico" MaxLength="10" HorizontalAlignment="Left" Height="23" Margin="480,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" FontWeight="Normal" Grid.Column="1"/>
+                                <Controles:TextBoxCustomizado x:Name="txtNumeroSequencial" TipoControle="Numerico" MaxLength="10" HorizontalAlignment="Left" Height="23" Margin="195,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" FontWeight="Normal" Grid.Column="1"/>
+                                <Controles:DataGridCustomizado x:Name="dgReferenciaCupom"
+                                          IsReadOnly="True"
+                                                   Background="Transparent"
+                                                   AutoGenerateColumns="False"
+                                                   CanUserAddRows="False"
+                                                   HorizontalAlignment="Left"
+                                                   ScrollViewer.CanContentScroll="True"
+                                                   ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                                   ScrollViewer.HorizontalScrollBarVisibility="Auto" Margin="16,55,0,0"
+                                                   VerticalAlignment="Top" 
+                                                   Height="156"
+                                                   Width="1064" KeyDown="dgReferenciaCupom_KeyDown" PreviewKeyDown="dgReferenciaCupom_PreviewKeyDown" MouseDoubleClick="dgReferenciaCupom_MouseDoubleClick" Grid.ColumnSpan="2">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Modelo ECF"
+                                            IsReadOnly="True"
+                                            Binding="{Binding Path=Modelo}" />
+                                        <DataGridTextColumn Header="Número de Ordem Sequencial do ECF"
+                                            IsReadOnly="True"
+                                            Binding="{Binding Path=NumeroECF}" />
+                                        <DataGridTextColumn Header="Contador de Ordem de Operação-COO"
+                                            IsReadOnly="True"
+                                            Binding="{Binding Path=NumeroCupom}" />
+                                    </DataGrid.Columns>
+                                </Controles:DataGridCustomizado>
+                                <Button x:Name="btnIncluirCupom" Content="Incluir" HorizontalAlignment="Left" Margin="719,22,0,0" VerticalAlignment="Top" Width="86" Click="btnIncluirCupom_Click" Grid.Column="1"/>
+                                <Button x:Name="btnExcluirCupom" Content="Excluir" HorizontalAlignment="Left" Margin="841,22,0,0" VerticalAlignment="Top" Width="75" Click="btnExcluirCupom_Click" Height="20" Grid.Column="1"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tbiReferenciaContraNota" Header="Referência Contranota de Produtor " HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="220" Margin="0,0,0,0">
+                            <Grid Background="#FFFFFEFE">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="6*"/>
+                                    <ColumnDefinition Width="77*"/>
+                                    <ColumnDefinition Width="69*"/>
+                                    <ColumnDefinition Width="22*"/>
+                                    <ColumnDefinition Width="70*"/>
+                                    <ColumnDefinition Width="500*"/>
+                                    <ColumnDefinition Width="374*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid HorizontalAlignment="Left" Height="215" Margin="9,14,0,0" VerticalAlignment="Top" Width="1081" Grid.ColumnSpan="6" Grid.Column="1">
+                                    <Label x:Name="label32" Content="Data Emissão:" HorizontalAlignment="Left" Margin="471,30,0,0" VerticalAlignment="Top" Width="103"/>
+                                    <Label x:Name="label32_Copy" Content="Número de Série:" HorizontalAlignment="Left" Margin="277,30,0,0" VerticalAlignment="Top" Width="115"/>
+                                    <Label x:Name="label32_Copy1" Content="Nota de Referência:" HorizontalAlignment="Left" Margin="7,30,0,0" VerticalAlignment="Top" Width="131"/>
+                                    <Controles:TextBoxCustomizado x:Name="txtNumeroNotaReferencia" TabIndex="1" MensagemObrigatoria="Campos Obrigatorios" MaxLength="10" HorizontalAlignment="Left" TipoControle="Numerico" Height="23" Margin="142,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontWeight="Normal"/>
+                                    <Controles:ComboBoxCustomizado x:Name="cboModeloEspecie" HorizontalAlignment="Left" MensagemObrigatoria="Campos Obrigatorios" Margin="719,34,0,0" VerticalAlignment="Top" Width="239" Height="22" FontWeight="Normal"/>
+                                    <Controles:DataGridCustomizado x:Name="dgContranotaReferencia" 
+                                                                    IsReadOnly="True"
+                                                   Background="Transparent"
+                                                   AutoGenerateColumns="False"
+                                                   CanUserAddRows="False"
+                                                   ScrollViewer.CanContentScroll="True"
+                                                   ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                                                   HorizontalAlignment="Left" Height="100" Margin="8,99,0,0" VerticalAlignment="Top" Width="1057" PreviewKeyDown="DataGrid_PreviewKeyDown" MouseDoubleClick="DataGrid_MouseDoubleClick">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Nota de Referência"
+                                            IsReadOnly="True"
+                                            Binding="{Binding Path=NumeroNota}" />
+                                            <DataGridTextColumn Header="Série"
+                                            IsReadOnly="True"
+                                            Binding="{Binding Path=Serie}" />
+                                            <DataGridTextColumn Header="Data de Emissão"
+                                            IsReadOnly="True"
+                                            Binding="{Binding Path=DataEmissao}" />
+                                            <DataGridTextColumn Header="Modelo Documento Fiscal"
+                                            IsReadOnly="True"
+                                            Binding="{Binding Path=idEspecie}" />
+                                        </DataGrid.Columns>
+                                    </Controles:DataGridCustomizado>
+                                    <Button x:Name="btnAdicionarReferenciaContranota" Content="Adicionar" HorizontalAlignment="Left" Margin="982,35,0,0" VerticalAlignment="Top" Width="82" Click="BtnAdicionarReferenciaContranota_Click"/>
+                                </Grid>
+                                <Controles:TextBoxCustomizado x:Name="txtNumeroSerieReferencia" TabIndex="2" MensagemObrigatoria="Campos Obrigatorios" MaxLength="3" TipoControle="Numerico" HorizontalAlignment="Left" Height="23" Margin="168,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" Grid.Column="5" FontWeight="Normal"/>
+                                <Controles:TextBoxCustomizado x:Name="txtDataReferencia" HorizontalAlignment="Left" TipoControle="Data" MensagemObrigatoria="Campos Obrigatorios" Height="23" Margin="344,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="5" FontWeight="Normal"/>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tbiProduto" Header="Produtos" FontWeight="Bold" Margin="0,0,-1,0">
+                <Grid Background="#FFF9F9F9">
+                    <GroupBox x:Name="groupBox3" Header="Produtos" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="185" Width="1228" BorderBrush="#FF010A0F">
+                        <Controles:DataGridCustomizado x:Name="dgProdutos" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Height="103" Width="1195" CanUserAddRows="False"
+                                                   IsTabStop="False"
+                                                   CanUserDeleteRows="False"
+                                                   AutoGenerateColumns="False" PreviewKeyDown="dgProdutos_PreviewKeyDown" SelectionChanged="dgProdutos_SelectionChanged">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Nº Item"
+                                            IsReadOnly="True"
+                                            Binding="{Binding Path=NumeroItem}" />
+                                <DataGridTextColumn Header="Cód. Prod."
+                                            IsReadOnly="True"
+                                            Binding="{Binding idProduto}">
+
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="HorizontalAlignment"
+                                      Value="Center" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Header="Cód. Ref."
+                                            IsReadOnly="True"
+                                            Binding="{Binding tb_produto.CodigoReferencia}" />
+                                <DataGridTextColumn Header="Descrição do(s) Produto(s)"
+                                            IsReadOnly="True"
+                                            Width="*">
+                                    <DataGridTextColumn.Binding>
+                                        <MultiBinding StringFormat="{}{0} {1}">
+                                            <Binding Path="tb_produto.Descricao" />
+                                            <Binding Path="ComplementoDescricao" />
+                                        </MultiBinding>
+                                    </DataGridTextColumn.Binding>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Header="NCM/SH"
+                                            IsReadOnly="True"
+                                            Binding="{Binding tb_produto.NCM}" />
+                                <DataGridTextColumn Header="CFOP"
+                                            IsReadOnly="True"
+                                            Binding="{Binding idCFOP}" />
+                                <DataGridTextColumn Header="CST"
+                                            x:Name="colCST"
+                                            Visibility="Collapsed"
+                                            IsReadOnly="True" />
+                                <DataGridTextColumn Header="Unid."
+                                            IsReadOnly="True"
+                                            Binding="{Binding tb_produto.tb_unidade.Unidade}" />
+                                <DataGridTextColumn Header="Marca"
+                                            IsReadOnly="True"
+                                            MinWidth="50"
+                                            Binding="{Binding tb_produto.tb_marca_produto.Descricao}" />
+                                <DataGridTextColumn Header="Quant."
+                                            IsReadOnly="True"
+                                            Binding="{Binding Quantidade}" />
+                                <DataGridTextColumn Header="Valor Unitário"
+                                            IsReadOnly="True"
+                                            Binding="{Binding ValorUnitario, StringFormat='C2', ConverterCulture='pt-BR'}" />
+                                <DataGridTextColumn Header="Total Produto"
+                                            IsReadOnly="True"
+                                            Binding="{Binding ValorTotalProduto, StringFormat='C2', ConverterCulture='pt-BR'}" />
+                            </DataGrid.Columns>
+                        </Controles:DataGridCustomizado>
+                    </GroupBox>
+                    <Label x:Name="label12" Content="Pesquisa por descrição:" HorizontalAlignment="Left" Margin="30,12,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtPesquisaPorDescricao" HorizontalAlignment="Left" Height="23" Margin="184,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="468" FontWeight="Normal" TextChanged="txtPesquisaPorDescricao_TextChanged"/>
+                    <Label x:Name="label13" Content="CFOP:" HorizontalAlignment="Left" Margin="690,10,0,0" VerticalAlignment="Top"/>
+                    <Controles:usrConsultaControle HorizontalAlignment="Left"
+                        x:Name="uscCFOPMassa"
+                        Margin="742,13,0,0"
+                        TabIndex="1"
+                        VerticalAlignment="Top"
+                        Height="20"
+                        Width="235" EventoCodigoAlterado="uscCFOPMassa_EventoCodigoAlterado" FontWeight="Normal" />
+                    <Label x:Name="label14" Content="Valor de desconto total:" HorizontalAlignment="Left" Margin="29,38,0,0" VerticalAlignment="Top"/>
+                    <Controles:TextBoxCustomizado x:Name="txtDescontoTotal" TipoControle="Monetario" HorizontalAlignment="Left" Height="23" Margin="184,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontWeight="Normal"/>
+                    <CheckBox x:Name="chkNaoConsiderarDescontoTributos" Content="Não considerar desconto para cálculo dos tributos" HorizontalAlignment="Left" Margin="342,41,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="btnCalcularDescontoTotal" Content="Calcular Desconto" HorizontalAlignment="Left" Margin="659,39,0,0" VerticalAlignment="Top" Width="133" Click="btnCalcularDescontoTotal_Click"/>
+                    <Controles:ComboBoxCustomizado x:Name="cboAtacadoVarejo" MensagemObrigatoria="Campo Obrigatório!" HorizontalAlignment="Left" Margin="855,37,0,0" VerticalAlignment="Top" Width="120"/>
+                    <TabControl x:Name="tbcProduto" HorizontalAlignment="Left" Height="177" Margin="10,187,0,0" VerticalAlignment="Top" Width="1228">
+                        <TabItem x:Name="tbiDadosProduto" Header="Dados Produto">
+                            <Grid Background="#FFF9F9F9" Margin="0,0,4,4" HorizontalAlignment="Right" Width="1208">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="56*"/>
+                                    <ColumnDefinition Width="555*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label x:Name="label16" HorizontalAlignment="Left" Margin="17,50,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label18" Content="CFOP:" HorizontalAlignment="Left" Margin="15,22,0,0" VerticalAlignment="Top"/>
+                                <Controles:usrConsultaControle x:Name="uscProduto"
+                                    Margin="101,0,0,0"
+                                    VerticalAlignment="Top"
+                                    Height="21"
+                                    Width="363"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="0" Grid.ColumnSpan="2" FontWeight="Normal" EventoCodigoAlterado="uscProduto_EventoCodigoAlterado" />
+                                <Controles:usrConsultaControle x:Name="uscCFOP"
+                                    Margin="101,26,0,0"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="364"
+                                    MensagemObrigatoria="Campo Obrigatório!"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="1" Grid.ColumnSpan="2" FontWeight="Normal" />
+                                <Label x:Name="label19" Content="Quantidade:" HorizontalAlignment="Left" Margin="14,51,0,0" VerticalAlignment="Top"/>
+                                <Controles:TextBoxCustomizado x:Name="txtQuantidade" TabIndex="3" TipoControle="MonetarioQuatro" HorizontalAlignment="Left" Height="22" Margin="101,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" FontWeight="Normal" TextChanged="txtQuantidade_TextChanged"/>
+                                <Label x:Name="label20" Content="Valor Unitário:" Grid.Column="1" HorizontalAlignment="Left" Margin="137,52,0,0" VerticalAlignment="Top"/>
+                                <Controles:TextBoxCustomizado x:Name="txtValorUnitario" TabIndex="4" TipoControle="Monetario" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="234,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontWeight="Normal" TextChanged="txtValorUnitario_TextChanged"/>
+                                <Label x:Name="label21" Content="Despesas:" HorizontalAlignment="Left" Margin="14,76,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label22" Content="Valor Seguro:" Grid.Column="1" HorizontalAlignment="Left" Margin="143,76,0,0" VerticalAlignment="Top"/>
+                                <Controles:TextBoxCustomizado x:Name="txtValorSeguro" TabIndex="8" TipoControle="Monetario" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="234,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontWeight="Normal" TextChanged="txtValorSeguro_TextChanged"/>
+                                <Label x:Name="label17" Content="Produto:" HorizontalAlignment="Left" Margin="16,-2,0,0" VerticalAlignment="Top"/>
+                                <Controles:TextBoxCustomizado x:Name="txtValorDespesas" TabIndex="7" TipoControle="Monetario" HorizontalAlignment="Left" Height="23" Margin="101,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" FontWeight="Normal" TextChanged="txtValorDespesas_TextChanged"/>
+                                <Label Content="Pedido:" HorizontalAlignment="Left" Margin="429,-1,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1"/>
+                                <TextBox x:Name="txtPedido" HorizontalAlignment="Left" Height="23" Margin="483,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" MaxLength="15" Grid.Column="1" FontWeight="Normal"/>
+                                <Label Content="Cod. Ped.:" HorizontalAlignment="Left" Margin="582,-1,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1"/>
+                                <Controles:TextBoxCustomizado x:Name="txtcodigopedido" HorizontalAlignment="Left" Height="22" Margin="652,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TipoControle="Numerico" MaxLength="6" Grid.Column="1" FontWeight="Normal" />
+                                <Controles:TextBoxCustomizado x:Name="txtComplementoDescricao"
+                                    Margin="482,26,0,0"
+                                    ToolTip="Informações Adicionais do Produto.\nCampo aceita até 500 caracteres."
+                                    MaxLength="500"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    TabIndex="2"
+                                    Width="291"
+                                    HorizontalAlignment="Left" Grid.Column="1" FontWeight="Normal" />
+                                <TextBlock Text="Complemento Desc.:"
+                                    HorizontalAlignment="Left"
+                                    Margin="359,26,0,0"
+                                    FontWeight="Bold"
+                                    VerticalAlignment="Top" Grid.Column="1" />
+                                <TextBlock Text="Frete:"
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    Margin="610,53,0,0"
+                                    VerticalAlignment="Top" Grid.Column="1" />
+                                <Controles:TextBoxCustomizado x:Name="txtValorFreteProduto"
+                                    Margin="650,53,0,0"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    TipoControle="Monetario"
+                                    Width="122"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="6" Grid.Column="1" FontWeight="Normal" TextChanged="txtValorFreteProduto_TextChanged"/>
+                                <TextBlock Text="Valor Desconto:"
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    Margin="387,53,0,0"
+                                    VerticalAlignment="Top" Grid.Column="1" />
+                                <Controles:TextBoxCustomizado x:Name="txtValorDescontoProduto"
+                                    Margin="482,53,0,0"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="120"
+                                    TipoControle="Monetario"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="5" Grid.Column="1" FontWeight="Normal" TextChanged="txtValorDescontoProduto_TextChanged"/>
+                                <Label x:Name="label_Copy" Content="% IPI Devolv.:" HorizontalAlignment="Left" Margin="394,77,0,0" VerticalAlignment="Top" Width="88" FontWeight="Bold" Grid.Column="1"/>
+                                <Controles:TextBoxCustomizado  TipoControle="Decimal" TabIndex="9" x:Name="txtPercentualIPIDevolvido" HorizontalAlignment="Left" Height="23" Margin="482,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Grid.Column="1" FontWeight="Normal"/>
+                                <Label x:Name="label1_Copy" Content="IPI Dev.:" HorizontalAlignment="Left" Margin="593,78,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1"/>
+                                <Controles:TextBoxCustomizado  TipoControle="Monetario" TabIndex="10" x:Name="txtIPIDevolvido" HorizontalAlignment="Left" Height="23" Margin="650,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Grid.Column="1" FontWeight="Normal"/>
+                                <TextBlock x:Name="txtValorTotalProduto"
+                                    FontWeight="Bold"
+                                    Foreground="Blue"
+                                    TextWrapping="Wrap"
+                                    Text="R$ 0,00"
+                                    FontSize="13"
+                                    VerticalAlignment="Top"
+                                    HorizontalAlignment="Left"
+                                    Margin="92,111,0,0"  Grid.ColumnSpan="2"  />
+                                <TextBlock Text="Valor Total:"
+                                    HorizontalAlignment="Left"
+                                    Grid.Column="0"
+                                    FontSize="13"
+                                    FontWeight="Bold"
+                                    VerticalAlignment="Top"
+                                    Height="14"
+                                    Margin="18,111,0,0"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tbiICMS" Header="ICMS">
+                            <Grid Background="White">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="83*"/>
+                                    <ColumnDefinition Width="528*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="Origem:"
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    Margin="16,2,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:usrConsultaControle HorizontalAlignment="Left"
+                                    x:Name="uscOrigem"
+                                    Margin="117,1,0,0"
+                                    VerticalAlignment="Top"
+                                    MensagemObrigatoria="Campo Obrigatório"
+                                    TabIndex="1"
+                                    Height="22"
+                                    Width="364" FontWeight="Normal" Grid.ColumnSpan="2" />
+                                <TextBlock Text="CST ICMS:"
+                                    x:Name="lblCSOSNCST"
+                                    FontWeight="Bold"
+                                    HorizontalAlignment="Left"
+                                    Margin="418,1,0,0"
+                                    VerticalAlignment="Top" Grid.Column="1" />
+                                <Controles:usrConsultaControle HorizontalAlignment="Left"
+                                    x:Name="uscCSTICMS"
+                                    Margin="487,1,0,0"
+                                    VerticalAlignment="Top"
+                                    MensagemObrigatoria="Campo Obrigatório"
+                                    TabIndex="2"
+                                    Height="22"
+                                    Width="302" FontWeight="Normal" Grid.Column="1" EventoCodigoAlterado="uscCSTICMS_EventoCodigoAlterado" />
+                                <TextBlock Text="Base Cálc. ICMS:"
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    Margin="16,28,0,0"
+                                    VerticalAlignment="Top" />
+                                <TextBlock Text="Alíquota ICMS:"
+                                    x:Name="lblAliquotaICMS"
+                                    HorizontalAlignment="Left"
+                                    Margin="391,28,0,0"
+                                    FontWeight="Bold"
+                                    VerticalAlignment="Top" Grid.Column="1" />
+                                <TextBlock Text="Valor ICMS:"
+                                    x:Name="lblValorICMS"
+                                    HorizontalAlignment="Left"
+                                    Margin="597,28,0,0"
+                                    FontWeight="Bold"
+                                    VerticalAlignment="Top" Grid.Column="1" />
+                                <Controles:TextBoxCustomizado x:Name="txtValorICMS"
+                                    MaxLength="15"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="110"
+                                    TipoControle="Monetario"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="6"
+                                    Margin="679,28,0,0" FontWeight="Normal" Grid.Column="1" IsEnabled="False"/>
+                                <TextBlock Text="% Redução da Base:"
+                                    HorizontalAlignment="Left"
+                                    Margin="87,28,0,0"
+                                    FontWeight="Bold"
+                                    VerticalAlignment="Top" Grid.Column="1" />
+                                <Controles:TextBoxCustomizado x:Name="txtPorcentagemReducao"
+                                    Margin="214,28,0,0"
+                                    TabIndex="4"                          
+                                    MaxLength="15"
+                                    IsEnabled="False"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    TipoControle="Decimal"
+                                    HorizontalAlignment="Left"
+                                    Width="103" Grid.Column="1" FontWeight="Normal" LostFocus="txtPorcentagemReducao_LostFocus"/>
+                                <TextBlock Text="% Diferimento:"
+                                    HorizontalAlignment="Left"
+                                    Margin="16,88,0,0"
+                                    FontWeight="Bold"
+                                    VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado x:Name="txtPorcentagemDiferimento"
+                                    Margin="117,89,0,0"
+                                    MaxLength="15" TabIndex="7"
+                                    IsEnabled="False"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    TipoControle="Decimal"
+                                    HorizontalAlignment="Left"
+                                    Width="109" FontWeight="Normal" Grid.ColumnSpan="2" SelectionChanged="txtPorcentagemDiferimento_SelectionChanged" />
+                                <TextBlock Text="Valor ICMS Diferido:"
+                                    HorizontalAlignment="Left"
+                                    Margin="83,88,0,0"
+                                    FontWeight="Bold"
+                                    VerticalAlignment="Top" Grid.Column="1" />
+                                <Controles:TextBoxCustomizado x:Name="txtValorIcmsDiferido"
+                                    Margin="211,88,0,0" TabIndex="8"
+                                    MaxLength="15"
+                                    IsTabStop="False"
+                                    IsEnabled="False"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    TipoControle="Decimal"
+                                    HorizontalAlignment="Left"
+                                    Width="104" FontWeight="Normal" Grid.Column="1" />
+                                <TextBlock Text="Valor ICMS Após Diferimento:"
+                                    HorizontalAlignment="Left"
+                                    Margin="332,89,0,0"
+                                    FontWeight="Bold"
+                                    VerticalAlignment="Top" Grid.Column="1" />
+                                <Controles:TextBoxCustomizado x:Name="txtValorIcmsAposDiferimento"
+                                    Margin="517,86,0,0"
+                                    MaxLength="15" TabIndex="9"
+                                    IsTabStop="False"
+                                    IsEnabled="False"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    TipoControle="Decimal"
+                                    HorizontalAlignment="Left"
+                                    Width="109" FontWeight="Normal" Grid.Column="1" />
+                                <Controles:TextBoxCustomizado x:Name="txtBaseIcms" TipoControle="Monetario" TabIndex="3" HorizontalAlignment="Left" Height="23" Margin="118,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontWeight="Normal" TextChanged="txtBaseIcms_TextChanged" Grid.ColumnSpan="2"/>
+                                <Controles:TextBoxCustomizado x:Name="txtAliquota" TipoControle="Decimal" TabIndex="5" HorizontalAlignment="Left" Height="23" Margin="487,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79"  FontWeight="Normal" TextChanged="txtAliquota_TextChanged" Grid.Column="1"/>
+                                <Label x:Name="label24" Content="Aplicar Calculo % Redução:" HorizontalAlignment="Left" Margin="13,55,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="172"/>
+                                <RadioButton x:Name="rdbValorOriginal" Content="Valor Original da Base" Grid.Column="1" HorizontalAlignment="Left" Margin="17,57,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                                <RadioButton x:Name="rdbValorBase" Content="Valor da Base Alterada" Grid.Column="1" HorizontalAlignment="Left" Margin="173,57,0,0" VerticalAlignment="Top"/>
+                                <CheckBox x:Name="chkPartilha" Content="Habilitar Partilha ICMS" Grid.Column="1" HorizontalAlignment="Left" Margin="814,0,0,0" VerticalAlignment="Top" Width="189" Click="ChkPartilha_Click"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tbiICMSST" Header="ICMS ST" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="73" Margin="-2,0,-7,0">
+                            <Grid Background="#FFFBFBFB">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="33*"/>
+                                    <ColumnDefinition Width="1190*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="Base Cálc. ICMS ST:"
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    Margin="392,13,0,0"
+                                    VerticalAlignment="Top" Grid.Column="1" />
+                                <Controles:TextBoxCustomizado x:Name="txtBaseICMSST"
+                                    MensagemObrigatoria="Campo Obrigatório!"                          
+                                    Margin="509,13,0,0"
+                                    MaxLength="15"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="91"
+                                    TipoControle="Monetario"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="3"  Grid.Column="1" FontWeight="Normal"  />
+                                <TextBlock Text="Valor ICMS ST:"
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    Margin="22,41,0,0"
+                                    VerticalAlignment="Top" Grid.ColumnSpan="2" />
+                                <Controles:TextBoxCustomizado x:Name="txtValorICMSST"
+                                    Margin="121,41,0,0"
+                                    MaxLength="15"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="106"
+                                    TipoControle="Monetario"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="5" Grid.Column="1" FontWeight="Normal"/>
+                                <TextBlock Text="% Redução Base Cálc.:"
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    Margin="22,13,0,0"
+                                    VerticalAlignment="Top" Grid.ColumnSpan="2" />
+                                <Controles:TextBoxCustomizado x:Name="txtPorcentagemST"
+                                    Margin="121,13,0,0"
+                                    MaxLength="15"
+                                    IsTabStop="False"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="106"
+                                    TipoControle="Decimal"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="1" IsEnabled="False" Grid.Column="1" FontWeight="Normal" />
+                                <TextBlock Text="% MVA:"
+                                    HorizontalAlignment="Left"
+                                    Margin="235,13,0,0"
+                                    FontWeight="Bold"
+                                    VerticalAlignment="Top"
+                                    RenderTransformOrigin="0.5,0.5" Grid.Column="1" />
+
+                                <Controles:TextBoxCustomizado x:Name="txtMVA"
+                                    Margin="286,13,0,0"
+                                    MensagemObrigatoria="Campo Obrigatório!"                          
+                                    MaxLength="15"
+                                    IsTabStop="False"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="99"
+                                    TipoControle="Decimal"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="2" Grid.Column="1" FontWeight="Normal" TextChanged="txtMVA_TextChanged" />
+                                <TextBlock Text="Alíquota ICMS ST:"
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    Margin="610,13,0,0"
+                                    VerticalAlignment="Top" Grid.Column="1" />
+                                <Controles:TextBoxCustomizado x:Name="txtAliquotaICMSST"
+                                    MensagemObrigatoria="Campo Obrigatório!"                          
+                                    Margin="717,13,0,0"
+                                    MaxLength="15"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="74"
+                                    TipoControle="Decimal"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="4" Grid.Column="1" FontWeight="Normal" TextChanged="txtAliquotaICMSST_TextChanged" />
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tbiPartilhaICMS" Header="Partilha de ICMS" HorizontalAlignment="Left" Height="19" VerticalAlignment="Top" Width="121" Margin="-2,0,0,0">
+                            <TabItem.Background>
+                                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                    <GradientStop Color="#FFF9F2F2" Offset="1"/>
+                                </LinearGradientBrush>
+                            </TabItem.Background>
+                            <Grid Background="#FFFBFBFB">
+                                <TextBlock Text="Base Cálc.:"
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    Margin="17,6,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado x:Name="txtBasePartilhaICMS"
+                                    Margin="85,6,0,0"
+                                    IsEnabled="False"
+                                    MaxLength="15"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="80"
+                                    TipoControle="Monetario"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="0" FontWeight="Normal" />
+                                <TextBlock Text="% Origem:"
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    Margin="171,6,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado x:Name="txtPorcentagemOrigem"
+                                    Margin="258,6,0,0"
+                                    MaxLength="15"
+                                    IsTabStop="False"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="80"
+                                    TipoControle="Decimal"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="1" FontWeight="Normal" />
+                                <TextBlock Text="% Destino:"
+                                    FontWeight="Bold"
+                                    HorizontalAlignment="Left"
+                                    Margin="14,33,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado x:Name="txtPorcentagemDestino"
+                                    Margin="85,33,0,0"
+                                    IsEnabled="True"
+                                    MaxLength="15"
+                                    IsTabStop="False"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="80"
+                                    TipoControle="Decimal"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="2" FontWeight="Normal"/>
+                                <TextBlock Text="Valor Origem:"
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    Margin="348,6,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado x:Name="txtValorICMSOrigem"
+                                    Margin="434,6,0,0"
+                                    MaxLength="15"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="80"
+                                    TipoControle="Decimal"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="3" FontWeight="Normal" />
+                                <TextBlock Text="Valor Destino:"
+                                    HorizontalAlignment="Left"
+                                    Margin="171,33,0,0"
+                                    FontWeight="Bold"
+                                    VerticalAlignment="Top" />
+                                <TextBlock Text="% FCP:"
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    Margin="519,6,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado x:Name="txtPorcentagemFCP"
+                                    Margin="565,6,0,0"
+                                    MaxLength="15"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="74"
+                                    TipoControle="Decimal"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="6" FontWeight="Normal" SelectionChanged="TxtPorcentagemFCP_SelectionChanged" />
+                                <TextBlock Text="Valor FCP:"
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    Margin="648,6,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado x:Name="txtValorFCP"
+                                    Margin="715,6,0,0"
+                                    MaxLength="15"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="99"
+                                    TipoControle="Monetario"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="7" FontWeight="Normal" />
+                                <Controles:TextBoxCustomizado x:Name="txtValorDestino" TipoControle="Monetario" HorizontalAlignment="Left" Height="23" Margin="258,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" FontWeight="Normal"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tbiPIS" Header="PIS" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="58" Margin="-2,0,0,0">
+                            <Grid Background="White">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="415*"/>
+                                    <ColumnDefinition Width="807*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="CST PIS:"
+                                    FontWeight="Bold"
+                                    HorizontalAlignment="Left"
+                                    Margin="18,8,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:usrConsultaControle HorizontalAlignment="Left"
+                                    x:Name="uscCSTPIS"
+                                    Margin="79,8,0,0"
+                                    VerticalAlignment="Top"
+                                    TabIndex="1"
+                                    Height="22"
+                                    Width="405" Grid.ColumnSpan="2" FontWeight="Normal" EventoCodigoAlterado="uscCSTPIS_EventoCodigoAlterado" />
+                                <TextBlock Text="Base Cálc.:"
+                                    FontWeight="Bold"
+                                    HorizontalAlignment="Left"
+                                    Margin="105,8,0,0"
+                                    VerticalAlignment="Top" Grid.Column="1" />
+                                <Controles:TextBoxCustomizado x:Name="txtBasePIS"
+                                    MensagemObrigatoria="Campo Obrigatório!"                          
+                                    Margin="175,8,0,0"
+                                    MaxLength="15"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="80"
+                                    TipoControle="Monetario"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="2" Grid.Column="1" FontWeight="Normal" TextChanged="txtBasePIS_TextChanged" />
+                                <TextBlock Text="Alíquota:"
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    Margin="260,8,0,0"
+                                    VerticalAlignment="Top" Grid.Column="1" />
+                                <Controles:TextBoxCustomizado x:Name="txtAliquotaPIS"
+                                    MensagemObrigatoria="Campo Obrigatório!"
+                                    Margin="322,8,0,0"
+                                    MaxLength="15"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="80"
+                                    TipoControle="Decimal"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="3" Grid.Column="1" FontWeight="Normal" TextChanged="txtAliquotaPIS_TextChanged" />
+                                <TextBlock Text="Valor PIS:"
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    Margin="16,35,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado x:Name="txtValorPIS"
+                                                              MensagemObrigatoria="Campo Obrigatório!"
+                                    Margin="79,35,0,0"
+                                    MaxLength="15"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="80"
+                                    TipoControle="Monetario"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="4" FontWeight="Normal" />
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tbiCOFINS" Header="COFINS" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="74" Margin="-2,0,-14,0">
+                            <TabItem.Background>
+                                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                    <GradientStop Color="#FFFFFEFE" Offset="1"/>
+                                </LinearGradientBrush>
+                            </TabItem.Background>
+                            <Grid Background="White">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="495*"/>
+                                    <ColumnDefinition Width="728*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="CST COFINS:"
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    Margin="18,8,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:usrConsultaControle HorizontalAlignment="Left"
+                                    x:Name="uscCSTCOFINS"
+                                    Margin="106,8,0,0"
+                                    VerticalAlignment="Top"
+                                    TabIndex="1"
+                                    Height="22"
+                                    Width="320" FontWeight="Normal" EventoCodigoAlterado="uscCSTCOFINS_EventoCodigoAlterado" />
+                                <TextBlock Text="Base Cálc.:"
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    Margin="431,8,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado x:Name="txtBaseCOFINS"
+                                    MensagemObrigatoria="Campo Obrigatório!"
+                                    Margin="6,8,0,0"
+                                    MaxLength="15"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="80"
+                                    TipoControle="Monetario"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="2" Grid.Column="1" FontWeight="Normal" TextChanged="txtBaseCOFINS_TextChanged" />
+                                <TextBlock Text="Alíquota:"
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    Margin="91,8,0,0"
+                                    VerticalAlignment="Top" Grid.Column="1" />
+                                <Controles:TextBoxCustomizado x:Name="txtAliquotaCOFINS"
+                                    MensagemObrigatoria="Campo Obrigatório!"
+                                    Margin="153,8,0,0"
+                                    MaxLength="15"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="80"
+                                    TipoControle="Decimal"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="3" Grid.Column="1" FontWeight="Normal" TextChanged="txtAliquotaCOFINS_TextChanged" />
+                                <TextBlock Text="Valor COFINS:"
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    Margin="18,35,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado x:Name="txtValorCOFINS"
+                                                              MensagemObrigatoria="Campo Obrigatório!"
+                                    Margin="106,35,0,0"
+                                    MaxLength="15"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="80"
+                                    TipoControle="Monetario"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="4" FontWeight="Normal" />
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tbiIPI" Header="IPI" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="58" Margin="-2,0,0,0" FontWeight="Bold">
+                            <Grid Background="White">
+                                <TextBlock Text="CST IPI:"
+                                    FontWeight="Bold"
+                                    HorizontalAlignment="Left"
+                                    Margin="16,8,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:usrConsultaControle HorizontalAlignment="Left"
+                                    x:Name="uscCSTIPI"
+                                    Margin="83,7,0,0"
+                                    VerticalAlignment="Top"
+                                    TabIndex="1"
+                                    Height="22"
+                                    Width="370" FontWeight="Normal" EventoCodigoAlterado="uscCSTIPI_EventoCodigoAlterado" />
+                                <TextBlock Text="Base Cálc.:"
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    Margin="458,7,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado x:Name="txtBaseIPI"
+                                    MensagemObrigatoria="Campo Obrigatório!"
+                                    Margin="528,7,0,0"
+                                    MaxLength="15"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="94"
+                                    TipoControle="Monetario"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="2" FontWeight="Normal" TextChanged="txtBaseIPI_TextChanged" />
+                                <TextBlock Text="Alíquota:"
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    Margin="627,8,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado x:Name="txtAliquotaIPI"
+                                    MensagemObrigatoria="Campo Obrigatório!"
+                                    Margin="689,7,0,0"
+                                    MaxLength="15"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="94"
+                                    TipoControle="Decimal"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="3" FontWeight="Normal" TextChanged="txtAliquotaIPI_TextChanged" />
+                                <TextBlock Text="Valor IPI:"
+                                    FontWeight="Bold"
+                                    HorizontalAlignment="Left"
+                                    Margin="16,34,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado x:Name="txtValorIPI"
+                                                              MensagemObrigatoria="Campo Obrigatório!"
+                                    Margin="83,34,0,0"
+                                    MaxLength="15"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="112"
+                                    TipoControle="Monetario"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="4" FontWeight="Normal"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tbiDeclaracaoImportacao" Header="Declaração Importação" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="154" Margin="-4,0,0,0">
+                            <Grid Background="White" Margin="0,0,0,6">
+                                <TextBlock Text="Nº Declaração:"
+                                    FontWeight="Bold"
+                                    HorizontalAlignment="Left"
+                                    Margin="18,-2,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado HorizontalAlignment="Left"
+                                    x:Name="txtNumeroDI"
+                                    MensagemObrigatoria="Campo Obrigatório"                          
+                                    TipoControle="Padrao"
+                                    Margin="111,-3,0,0"
+                                    VerticalAlignment="Top"
+                                    TabIndex="1"
+                                    Height="22"
+                                    MaxLength="12"                          
+                                    Width="120" FontWeight="Normal" />
+                                <TextBlock Text="Local Desemb.:"
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    Margin="476,-3,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado x:Name="txtLocalDesembarque"
+                                    Margin="565,-3,0,0"
+                                    VerticalAlignment="Top"
+                                    MensagemObrigatoria="Campo Obrigatório"                          
+                                    Height="22"
+                                    MaxLength="60"
+                                    Width="165"
+                                    TipoControle="Padrao"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="3" FontWeight="Normal" />
+                                <TextBlock Text="UF Desemb.:"
+                                    FontWeight="Bold"
+                                    HorizontalAlignment="Left"
+                                    Margin="18,22,0,0"
+                                    VerticalAlignment="Top" />
+                                <TextBlock Text="Data Declaração:"
+                                    FontWeight="Bold"
+                                    HorizontalAlignment="Left"
+                                    Margin="242,-3,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado HorizontalAlignment="Left"
+                                    x:Name="txtDataDelacarao"
+                                    TipoControle="Data"
+                                    Margin="344,-3,0,0"
+                                    MensagemObrigatoria="Campo Obrigatório"                          
+                                    VerticalAlignment="Top"
+                                    TabIndex="2"
+                                    Height="22"
+                                    Width="120" FontWeight="Normal" />
+                                <Controles:ComboBoxCustomizado HorizontalAlignment="Left"
+                                    x:Name="cboUFDesembarque"
+                                    Margin="111,22,0,0"
+                                    VerticalAlignment="Top"
+                                    MensagemObrigatoria="Campo Obrigatório"                           
+                                    TabIndex="6"
+                                    Height="22"
+                                    Width="120" FontWeight="Normal" />
+                                <TextBlock Text="Data Desemb.:"
+                                    FontWeight="Bold"
+                                    HorizontalAlignment="Left"
+                                    Margin="242,22,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado HorizontalAlignment="Left"
+                                    x:Name="txtDataDesembarque"
+                                    TipoControle="Data"
+                                    Margin="344,22,0,0"
+                                    VerticalAlignment="Top"
+                                    MensagemObrigatoria="Campo Obrigatório"                          
+                                    TabIndex="7"
+                                    Height="22"
+                                    Width="120" FontWeight="Normal" />
+                                <TextBlock Text="Tipo Transp.:"
+                                    FontWeight="Bold"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    Margin="476,21,0,0" />
+                                <Controles:ComboBoxCustomizado HorizontalAlignment="Left"
+                                    x:Name="cboTipoViaTransporte"
+                                    VerticalAlignment="Top"
+                                    TabIndex="8"
+                                    MensagemObrigatoria="Campo Obrigatório"                           
+                                    Height="22"
+                                    Width="165"
+                                    Margin="565,22,0,0" FontWeight="Normal" />
+                                <TextBlock Text="Valor AFRMM:"
+                                    FontWeight="Bold"
+                                    HorizontalAlignment="Left"
+                                    Margin="746,24,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado HorizontalAlignment="Left"
+                                    ToolTip="Adicional ao Frete para Renovação da Marinha Mercante no caso da via de transporte marítima."
+                                    x:Name="txtValorAFRMM"
+                                    TipoControle="Monetario"
+                                    MensagemObrigatoria="Campo Obrigatório"                          
+                                    Margin="839,22,0,0"
+                                    VerticalAlignment="Top"
+                                    TabIndex="9"
+                                    Height="22"
+                                    Width="120" FontWeight="Normal" />
+                                <TextBlock Text="Forma Import.:"
+                                    FontWeight="Bold"
+                                    HorizontalAlignment="Left"
+                                    Margin="748,50,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:ComboBoxCustomizado x:Name="cboFormaImportacao"
+                                    ToolTip="Forma de Importação"
+                                    Margin="840,48,0,0"
+                                    MensagemObrigatoria="Campo Obrigatório"                           
+                                    VerticalAlignment="Top"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="11"
+                                    Height="22"
+                                    Width="352" FontWeight="Normal" />
+                                <TextBlock Text="CNPJ Adqui.:"
+                                    FontWeight="Bold"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    Margin="977,-3,0,0" />
+                                <Controles:TextBoxCustomizado x:Name="txtCNPJAdquirente"
+                                    ToolTip="CNPJ Adquirente"
+                                    Margin="1070,-3,0,0"
+                                    VerticalAlignment="Top"
+                                    MensagemObrigatoria="Campo Obrigatório"                          
+                                    Height="22"
+                                    MaxLength="60"
+                                    Width="121"
+                                    TipoControle="CNPJ"
+                                    ValidarCPFCNPJ="True"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="5" FontWeight="Normal" />
+                                <TextBlock Text="UF Adquirente:"
+                                    FontWeight="Bold"
+                                    HorizontalAlignment="Left"
+                                    Margin="745,-3,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:ComboBoxCustomizado HorizontalAlignment="Left"
+                                    x:Name="cboUFAdquirente"
+                                    ToolTip="Estado do Adquirente"
+                                    MensagemObrigatoria="Campo Obrigatório"                           
+                                    Margin="838,-3,0,0"
+                                    VerticalAlignment="Top"
+                                    TabIndex="4"
+                                    Height="22"
+                                    Width="120" FontWeight="Normal" />
+                                <TextBlock Text="Cód. Exportador:"
+                                    FontWeight="Bold"
+                                    HorizontalAlignment="Left"
+                                    Margin="968,24,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado x:Name="txtCodigoExportador"
+                                    TipoControle="Padrao"
+                                    MaxLength="60"
+                                    Margin="1070,23,0,0"
+                                    VerticalAlignment="Top"
+                                    HorizontalAlignment="Left"
+                                    MensagemObrigatoria="Campo Obrigatório"                          
+                                    TabIndex="10"
+                                    Height="22"
+                                    Width="122" FontWeight="Normal" />
+                                <Controles:DataGridCustomizado
+                                     CanUserAddRows="False"
+                                                       IsTabStop="False"
+                                                       CanUserDeleteRows="False"
+                                                       AutoGenerateColumns="False"
+                                    x:Name="dgAdicao" HorizontalAlignment="Left" Margin="18,48,0,0" VerticalAlignment="Top" Height="76" Width="712" PreviewKeyDown="dgAdicao_PreviewKeyDown" SelectionChanged="dgAdicao_SelectionChanged">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Nº Adição"
+                                                IsReadOnly="True"
+                                                Binding="{Binding Path=NumeroAdicao}" />
+                                        <DataGridTextColumn Header="Nº Sequêncial"
+                                                IsReadOnly="True"
+                                                Binding="{Binding Path=NumeroSequencialAdicao}" />
+                                        <DataGridTextColumn Header="Cód. Fabricante"
+                                                IsReadOnly="True"
+                                                Binding="{Binding CodigoFabricante}" />
+                                        <DataGridTextColumn Header="Valor Desconto Item"
+                                                IsReadOnly="True"
+                                                Binding="{Binding ValorDescontoItemAdicao, StringFormat=C4}" />
+                                        <DataGridTextColumn Header="Nº DrawBack"
+                                                IsReadOnly="True"
+                                                Binding="{Binding NumeroDrawBack}" />
+                                    </DataGrid.Columns>
+                                </Controles:DataGridCustomizado>
+                                <Button x:Name="btnAdicionarAdicao" Content="Inserir Adição" HorizontalAlignment="Left" Margin="736,80,0,0" VerticalAlignment="Top" Width="103" TabIndex="12" Click="btnAdicionarAdicao_Click"/>
+                                <Button x:Name="btnExcluirAdicao" Content="Excluir" HorizontalAlignment="Left" Margin="736,104,0,0" VerticalAlignment="Top" Width="103" IsEnabled="False" Click="btnExcluirAdicao_Click"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tbiImpostoImportacao" Header="Imposto Importação" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="142" Margin="-4,0">
+                            <Grid Background="White">
+                                <TextBlock Text="Despesas Aduaneiras:"
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    Margin="231,9,0,0"
+                                    VerticalAlignment="Top"/>
+                                <Controles:TextBoxCustomizado x:Name="txtDespesasAduaneiras"
+                                    Margin="361,9,0,0"
+                                    MaxLength="15"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="135"
+                                    TipoControle="Monetario"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="2" FontWeight="Normal" />
+                                <TextBlock Text="Valor II:"
+                                    FontWeight="Bold"
+                                    HorizontalAlignment="Left"
+                                    Margin="14,36,0,0"
+                                    VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado x:Name="txtValorII"
+                                    Margin="81,36,0,0"
+                                    MaxLength="15"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="112"
+                                    TipoControle="Monetario"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="3" FontWeight="Normal" />
+                                <TextBlock Text="Base Cálc.:"
+                                    FontWeight="Bold"
+                                    HorizontalAlignment="Left"
+                                    Margin="14,9,0,0"
+                                    VerticalAlignment="Top"/>
+                                <Controles:TextBoxCustomizado x:Name="txtBaseCalculoII"
+                                    Margin="81,9,0,0"
+                                    MaxLength="15"
+                                    VerticalAlignment="Top"
+                                    Height="22"
+                                    Width="112"
+                                    TipoControle="Monetario"
+                                    HorizontalAlignment="Left"
+                                    TabIndex="1" IsEnabled="False" FontWeight="Normal" />
+                                <Label x:Name="label23" Content="ValorIOF:" HorizontalAlignment="Left" Margin="230,31,0,0" VerticalAlignment="Top"/>
+                                <Controles:TextBoxCustomizado x:Name="txtValorIOF" TipoControle="Monetario" HorizontalAlignment="Left" Height="23" Margin="361,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" TabIndex="4" FontWeight="Normal"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tbiIcmsAntecipado" Header="ICMS ST Antecipado" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="159" Margin="-7,0,0,0">
+                            <Grid Background="#FFF9F9F9">
+                                <Label x:Name="label27" Content="Valor ICMS:" HorizontalAlignment="Left" Margin="22,43,0,0" VerticalAlignment="Top" Width="81"/>
+                                <Label x:Name="label28" Content="%FCP:" HorizontalAlignment="Left" Margin="950,43,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label29" Content="Base ICMS ST:" HorizontalAlignment="Left" Margin="240,43,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.404,-0.269"/>
+                                <Label x:Name="label30" Content="% ICMS ST:" HorizontalAlignment="Left" Margin="484,43,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label31" Content="Valor Icms ST:" HorizontalAlignment="Left" Margin="706,43,0,0" VerticalAlignment="Top"/>
+                                <Controles:TextBoxCustomizado TipoControle="Decimal" x:Name="txtValorIcmsAnt" HorizontalAlignment="Left" Height="23" Margin="106,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontWeight="Normal"/>
+                                <Controles:TextBoxCustomizado TipoControle="Decimal" x:Name="txtBaseIcmsStAnt" HorizontalAlignment="Left" Height="22" Margin="345,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontWeight="Normal"/>
+                                <Controles:TextBoxCustomizado TipoControle="Decimal" x:Name="txtPercentualIcmsStAnt" HorizontalAlignment="Left" Height="22" Margin="574,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontWeight="Normal"/>
+                                <Controles:TextBoxCustomizado TipoControle="Decimal" x:Name="txtValorICMSSTAnt" HorizontalAlignment="Left" Height="23" Margin="810,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontWeight="Normal"/>
+                                <Controles:TextBoxCustomizado TipoControle="Decimal" x:Name="txtpercentualFCPAnt" HorizontalAlignment="Left" Height="24" Margin="1012,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontWeight="Normal"/>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                    <Button x:Name="btnAdicionarProduto" Content="Adicionar" HorizontalAlignment="Left" Margin="1108,335,0,0" VerticalAlignment="Top" Width="94" Height="22" Click="btnAdicionarProduto_Click"/>
+                    <Button x:Name="btnExcluirProduto" Content="Excluir Produto" HorizontalAlignment="Left" Margin="960,335,0,0" VerticalAlignment="Top" Width="116" Height="22" Click="btnExcluirProduto_Click" />
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tbiTransporte" Header="Transporte" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="90" FontWeight="Bold" Margin="1,0,-1,0">
+                <Grid Background="#FFF9F9F9">
+                    <GroupBox x:Name="gbxAbaTransporte" Header="" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="355" Width="1217">
+                        <Grid HorizontalAlignment="Left" Height="349" Margin="10,0,-2,0" VerticalAlignment="Top" Width="1231">
+                            <GroupBox x:Name="gpbFrete" Header="Frete" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="123" Width="1176" BorderBrush="#FF010A0F"/>
+                            <Grid Margin="0,0,0,10">
+                                <TextBlock Text="Tipo Frete:"
+                        HorizontalAlignment="Left"
+                        FontWeight="Bold"
+                        Margin="36,38,0,0"
+                        VerticalAlignment="Top" />
+                                <Controles:ComboBoxCustomizado x:Name="cboTipoFrete"
+                        Margin="111,38,0,0"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        Width="135"
+                        HorizontalAlignment="Left"
+                        TabIndex="0" FontWeight="Normal" SelectionChanged="cboTipoFrete_SelectionChanged"/>
+                                <TextBlock Text="Valor Frete:"
+                        HorizontalAlignment="Left"
+                        FontWeight="Bold"
+                        Margin="261,38,0,0"
+                        VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado x:Name="txtValorFrete"
+                                                   MensagemObrigatoria="Campo Obrigatório!"
+                        Margin="340,38,0,0"
+                        VerticalAlignment="Top"
+                        TipoControle="Monetario"
+                        Height="22"
+                        Width="108"
+                        HorizontalAlignment="Left"
+                        TabIndex="1" FontWeight="Normal" />
+                                <TextBlock Text="Quantidade:"
+                        HorizontalAlignment="Left"
+                        FontWeight="Bold"
+                        Margin="462,38,0,0"
+                        VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado x:Name="txtQuantidadeVolumesFrete"
+                                                   MensagemObrigatoria="Campo Obrigatório!"
+                        Margin="544,38,0,0"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        Width="108"
+                        HorizontalAlignment="Left"
+                        TabIndex="2" FontWeight="Normal" />
+                                <TextBlock Text="Espécie Volumes:"
+                        HorizontalAlignment="Left"
+                        FontWeight="Bold"
+                        Margin="677,38,0,0"
+                        VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado x:Name="txtEspecieVolumes"
+                                                   MensagemObrigatoria="Campo Obrigatório!"
+                        Margin="787,38,0,0"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        Width="108"
+                        HorizontalAlignment="Left"
+                        TabIndex="3" FontWeight="Normal" />
+                                <TextBlock Text="Marca:"
+                        HorizontalAlignment="Left"
+                        FontWeight="Bold"
+                        Margin="36,65,0,0"
+                        VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado x:Name="txtMarca"
+                                                   MensagemObrigatoria="Campo Obrigatório!"
+                        Margin="111,65,0,0"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        Width="135"
+                        HorizontalAlignment="Left"
+                        TabIndex="4" FontWeight="Normal" />
+                                <TextBlock Text="Numeração:"
+                        HorizontalAlignment="Left"
+                        FontWeight="Bold"
+                        Margin="261,65,0,0"
+                        VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado x:Name="txtNumeracao"
+                                                   MensagemObrigatoria="Campo Obrigatório!"
+                        Margin="340,65,0,0"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        Width="108"
+                        HorizontalAlignment="Left"
+                        TabIndex="5" FontWeight="Normal" />
+                                <TextBlock Text="Peso Bruto:"
+                        HorizontalAlignment="Left"
+                        FontWeight="Bold"
+                        Margin="462,65,0,0"
+                        VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado x:Name="txtPesoBruto"
+                                                   MensagemObrigatoria="Campo Obrigatório!"
+                        Margin="544,64,0,0"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        TipoControle="Decimal"
+                        Width="108"
+                        HorizontalAlignment="Left"
+                        TabIndex="6" FontWeight="Normal" />
+                                <TextBlock Text="Peso Líquido: "
+                        HorizontalAlignment="Left"
+                        FontWeight="Bold"
+                        Margin="677,65,0,0"
+                        VerticalAlignment="Top" />
+                                <Controles:TextBoxCustomizado x:Name="txtPesoLiquido"
+                                                   MensagemObrigatoria="Campo Obrigatório!"
+                        Margin="787,65,0,0"
+                        VerticalAlignment="Top"
+                        TipoControle="Decimal"
+                        Height="22"
+                        Width="108"
+                        HorizontalAlignment="Left"
+                        TabIndex="7" FontWeight="Normal"/>
+                            </Grid>
+                            <GroupBox x:Name="gpbDadosTransportadora" Header="Dados Transportadora" HorizontalAlignment="Left" Margin="1,162,0,0" VerticalAlignment="Top" Height="157" Width="1175" BorderBrush="#FF010C13"/>
+                            <Controles:TextBoxCustomizado x:Name="txtInscricaoEstadualTransportadora"
+                        Margin="780,200,0,0"
+                        VerticalAlignment="Top"
+                        IsEnabled="False"
+                        Height="22"
+                        TabIndex="9"
+                        Width="114"
+                        HorizontalAlignment="Left" FontWeight="Normal" />
+                            <TextBlock Text="Insc. Estadual:"
+                        HorizontalAlignment="Left"
+                        Margin="680,200,0,0"
+                        FontWeight="Bold"
+                        VerticalAlignment="Top" />
+                            <TextBlock Text="Transportadora:"
+                        HorizontalAlignment="Left"
+                        Margin="36,200,0,0"
+                        FontWeight="Bold"
+                        VerticalAlignment="Top"
+                        RenderTransformOrigin="-1.184,-1.077"
+                        Width="103" />
+                            <Controles:usrConsultaControle x:Name="uscTransportadora"
+                                                   MensagemObrigatoria="Campo Obrigatório!"
+                        Margin="139,200,0,0"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        Width="494"
+                        HorizontalAlignment="Left"
+                        TabIndex="8" FontWeight="Normal" EventoCodigoAlterado="uscTransportadora_EventoCodigoAlterado_1" />
+                            <TextBlock Text="CPF/CNPJ:"
+                        HorizontalAlignment="Left"
+                        FontWeight="Bold"
+                        Margin="36,227,0,0"
+                        VerticalAlignment="Top" />
+                            <Controles:TextBoxCustomizado x:Name="txtNumeroInscricaoTransportadora"
+                        Margin="139,227,0,0"
+                        IsEnabled="False"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        Width="135"
+                        HorizontalAlignment="Left"
+                        MensagemObrigatoria="Campos Obrigatórios"                                  
+                        TabIndex="10" FontWeight="Normal" />
+                            <TextBlock Text="Placa Veic.:"
+                        HorizontalAlignment="Left"
+                        FontWeight="Bold"
+                        Margin="680,227,0,0"
+                        VerticalAlignment="Top" />
+                            <Controles:ComboBoxCustomizado x:Name="cboPlacaVeiculo"
+                        Margin="780,227,0,0"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        Width="114"
+                        HorizontalAlignment="Left"
+                        TabIndex="12" FontWeight="Normal" />
+                            <TextBlock Text="Endereço:"
+                        HorizontalAlignment="Left"
+                        FontWeight="Bold"
+                        Margin="36,253,0,0"
+                        VerticalAlignment="Top" />
+                            <Controles:TextBoxCustomizado x:Name="txtEnderecoTransportadora"
+                        Margin="139,253,0,0"
+                        VerticalAlignment="Top"
+                        IsEnabled="False"
+                        Height="22"
+                        MensagemObrigatoria="Campos Obrigatórios"                                  
+                        Width="494"
+                        HorizontalAlignment="Left"
+                        TabIndex="13" FontWeight="Normal" />
+                            <TextBlock Text="Estado:"
+                        HorizontalAlignment="Left"
+                        FontWeight="Bold"
+                        Margin="536,280,0,0"
+                        VerticalAlignment="Top" />
+                            <Controles:TextBoxCustomizado x:Name="txtEstadoTransportadora"
+                        Margin="592,280,0,0"
+                        VerticalAlignment="Top"
+                        IsEnabled="False"
+                        Height="22"
+                        Width="41"
+                        MensagemObrigatoria="Campos Obrigatórios"                                  
+                        HorizontalAlignment="Left"
+                        TabIndex="17" FontWeight="Normal" />
+                            <TextBlock Text="CEP:"
+                        HorizontalAlignment="Left"
+                        FontWeight="Bold"
+                        Margin="680,253,0,0"
+                        VerticalAlignment="Top" />
+                            <Controles:TextBoxCustomizado x:Name="txtCEPTransportadora"
+                        Margin="780,253,0,0"
+                        VerticalAlignment="Top"
+                        IsEnabled="False"
+                        Height="22"
+                        Width="114"
+                        TipoControle="CEP"
+                        HorizontalAlignment="Left"
+                        TabIndex="14" FontWeight="Normal" />
+                            <TextBlock Text="Motorista:"
+                        HorizontalAlignment="Left"
+                        FontWeight="Bold"
+                        Margin="283,227,0,0"
+                        VerticalAlignment="Top" />
+                            <Controles:usrConsultaControle x:Name="uscMotorista"
+                        Margin="353,227,0,0"
+                        VerticalAlignment="Top"
+                        IsEnabled="False"
+                        Height="22"
+                        Width="280"
+                        HorizontalAlignment="Left"
+                        TabIndex="11" FontWeight="Normal" />
+                            <TextBlock Text="Cidade:"
+                        HorizontalAlignment="Left"
+                        FontWeight="Bold"
+                        Margin="302,280,0,0"
+                        VerticalAlignment="Top" />
+                            <Controles:TextBoxCustomizado x:Name="txtCidadeTransportadora"
+                        Margin="354,280,0,0"
+                        VerticalAlignment="Top"
+                        IsEnabled="False"
+                        Height="22"
+                        Width="177"
+                        HorizontalAlignment="Left"
+                        MensagemObrigatoria="Campos Obrigatórios"
+                        TabIndex="16" FontWeight="Normal" />
+                            <TextBlock Text="Telefone:"
+                        HorizontalAlignment="Left"
+                        FontWeight="Bold"
+                        Margin="680,280,0,0"
+                        VerticalAlignment="Top" />
+                            <Controles:TextBoxCustomizado x:Name="txtTelefoneTransportadora"
+                        Margin="780,280,0,0"
+                        VerticalAlignment="Top"
+                        IsEnabled="False"
+                        Height="22"
+                        Width="114"
+                        HorizontalAlignment="Left"
+                        TabIndex="18" FontWeight="Normal" />
+                            <TextBlock Text="Bairro:"
+                        HorizontalAlignment="Left"
+                        FontWeight="Bold"
+                        Margin="36,280,0,0"
+                        VerticalAlignment="Top" />
+                            <Controles:TextBoxCustomizado x:Name="txtBairroTransportadora"
+                        Margin="139,280,0,0"
+                        VerticalAlignment="Top"
+                        IsEnabled="False"
+                        Height="22"
+                        Width="158"
+                        MensagemObrigatoria="Campos Obrigatórios"                                  
+                        HorizontalAlignment="Left"
+                        TabIndex="15" FontWeight="Normal" />
+                        </Grid>
+                    </GroupBox>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tbiPagamento" Header="Pagamento" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="87" FontWeight="Bold" Margin="1,0,-1,0">
+                <Grid Background="#FFF9F9F9">
+                    <TextBlock Text="Tipo das Parcelas:"
+                        HorizontalAlignment="Left"
+                        Margin="20,12,0,0"
+                        FontWeight="Bold"
+                        VerticalAlignment="Top" />
+                    <Controles:ComboBoxCustomizado x:Name="cboFormaPagamento"
+                        Margin="131,12,0,0"
+                        MensagemObrigatoria="Campo Obrigatório!"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        Width="179"
+                        HorizontalAlignment="Left"
+                        TabIndex="0" FontWeight="Normal" SelectionChanged="cboFormaPagamento_SelectionChanged" />
+                    <GroupBox x:Name="groupBox5" Header="Parcelas" HorizontalAlignment="Left" Margin="16,42,0,0" VerticalAlignment="Top" Height="145" Width="1206" BorderBrush="#FF00070C"/>
+                    <Controles:DataGridCustomizado x:Name="dgParcelas" HorizontalAlignment="Left" Margin="36,65,0,0" VerticalAlignment="Top" Height="109" Width="1168" FontWeight="Normal"
+                                                         ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                                                         ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                                         ItemsSource="{Binding}"
+                                                         AutoGenerateColumns="False"
+                                                         CanUserAddRows="False" MouseDoubleClick="dgParcelas_MouseDoubleClick" PreviewKeyDown="dgParcelas_PreviewKeyDown">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=Numero}"
+                                                  Width="100"
+                                                  Header="Número Parcela"
+                                                  IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Path=Valor, StringFormat='C2', ConverterCulture='pt-BR'}"
+                                                  Header="Valor Parcela"
+                                                  IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Path=DataVencimento, StringFormat='dd/MM/yyyy'}"
+                                                  Header="Vencimento"
+                                                  IsReadOnly="True" />
+                        </DataGrid.Columns>
+                    </Controles:DataGridCustomizado>
+                    <GroupBox x:Name="groupBox6" Header="Forma de Pagamento" HorizontalAlignment="Left" Margin="16,192,0,0" VerticalAlignment="Top" Height="152" Width="1206" BorderBrush="#FF010B11">
+                        <Controles:DataGridCustomizado x:Name="dgFormaPagamento" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="88" Width="1174" FontWeight="Normal"
+                                                       IsTabStop="False"
+                                                   AutoGenerateColumns="False"
+                                                    CanUserAddRows="False" MouseDoubleClick="dgFormaPagamento_MouseDoubleClick" PreviewKeyDown="dgFormaPagamento_PreviewKeyDown">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding FormaDePagamentoDecricao}"
+                                           Width="124"
+                                           Header="Forma de Pagamento"
+                                           IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding ValorDoPagamento, ConverterCulture=pt-BR, StringFormat=C2}"
+                                           Header="Valor do Pagamento"
+                                           IsReadOnly="True" />
+                            </DataGrid.Columns>
+                        </Controles:DataGridCustomizado>
+                    </GroupBox>
+                    <TextBlock Text="Valor Total:"
+                        FontWeight="Bold"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top" Margin="0,315,1126,0" />
+                    <TextBlock HorizontalAlignment="Right"
+                        Margin="0,315,1074,0"
+                        x:Name="txtValorTotalPagamento"
+                        TextWrapping="Wrap"
+                        Text="R$ 0,00"
+                        VerticalAlignment="Top"
+                        FontWeight="Bold" />
+                    <TextBlock Text="Valor Restante:"
+                        FontWeight="Bold"
+                        HorizontalAlignment="Right"
+                        Margin="0,315,957,0"
+                        VerticalAlignment="Top" />
+                    <TextBlock HorizontalAlignment="Right"
+                        Margin="0,315,905,0"
+                        x:Name="txtValorRestante"
+                        TextWrapping="Wrap"
+                        Text="R$ 0,00"
+                        VerticalAlignment="Top"
+                        FontWeight="Bold" />
+                    <Button x:Name="btnAdicionarFormaPagamento" Content="Adicionar Forma de Pagamento" HorizontalAlignment="Left" Margin="842,311,0,0" VerticalAlignment="Top" Width="204" Click="btnAdicionarFormaPagamento_Click"/>
+                    <Button x:Name="btnAdicionarParcelas" Content="Adicionar Parcelas" HorizontalAlignment="Left" Margin="1068,311,0,0" VerticalAlignment="Top" Width="134" Click="btnAdicionarParcelas_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tbiInformacaoComplementar" Header="Inf. Adicionais" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="105" FontWeight="Bold" Margin="1,0,-1,0">
+                <Grid Background="#FFF9F9F9">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="223*"/>
+                        <ColumnDefinition Width="1033*"/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox x:Name="groupBox7" Header="Informações Complementares" HorizontalAlignment="Left" Margin="24,54,0,0" VerticalAlignment="Top" Height="110" Width="1190" BorderBrush="#FF010B11" Grid.ColumnSpan="2"/>
+                    <Controles:TextBoxCustomizado
+                        x:Name="txtInfEditaveis"
+                        MensagemObrigatoria="Campo Obrigatório!"
+                        VerticalAlignment="Stretch"
+                        HorizontalAlignment="Stretch"
+                        TabIndex="3"
+                        MaxLength="4500"
+                        AcceptsReturn="True"
+                        TextWrapping="Wrap"
+                        VerticalScrollBarVisibility="Auto"
+                        Margin="47,73,43,219"
+                        AcceptsTab ="True"
+                        SpellCheck.IsEnabled ="True"
+                        VerticalContentAlignment ="Stretch"
+                        IgnorarEnter="True" FontWeight="Normal" Grid.ColumnSpan="2"/>
+                    <GroupBox x:Name="gbxImpostoAproximado" Header="Impostos Aproximados - De Olho no Imposto" HorizontalAlignment="Left" Margin="24,262,0,0" VerticalAlignment="Top" Width="1190" Height="100" BorderBrush="#FF01090E" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="txtImpostoAproximado" HorizontalAlignment="Left" Height="48" Margin="47,292,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1146" FontWeight="Normal" IsEnabled="False" Grid.ColumnSpan="2"/>
+                    <GroupBox x:Name="gbxInformacaoPadrao" Header="Informações Padrão Obrigatórias" HorizontalAlignment="Left" Margin="24,169,0,0" VerticalAlignment="Top" Width="1190" Height="88" BorderBrush="Black" Grid.ColumnSpan="2"/>
+                    <ComboBox x:Name="cboInformacoesComplementares" HorizontalAlignment="Left" Margin="24,14,0,0" VerticalAlignment="Top" Width="366" FontWeight="Normal" SelectionChanged="cboInformacoesComplementares_SelectionChanged_1" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="txtInfComplementaresPadrao" HorizontalAlignment="Left" Height="53" Margin="47,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1146" IsEnabled="False" Grid.ColumnSpan="2"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tbiErros" Header="Erros NF-e" HorizontalAlignment="Right" Height="20" VerticalAlignment="Top" Width="80" FontWeight="Bold" Margin="-1,0,1,0">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FFF9F9F9" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Background="#FFF9F9F9">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="389*"/>
+                        <ColumnDefinition Width="882*"/>
+                    </Grid.ColumnDefinitions>
+                    <Controles:DataGridCustomizado x:Name="dgNFErros"
+                                                 HorizontalScrollBarVisibility="Auto"
+                                                 VerticalScrollBarVisibility="Auto"
+                                                 ItemsSource="{Binding}"
+                                                 IsReadOnly="True"
+                                                 AutoGenerateColumns="False"
+                                                 CanUserAddRows="False"
+                                                 CanUserDeleteRows="false"
+                                                 CanUserReorderColumns="False"
+                                                 SelectionMode="Single"
+                                                 Background="Transparent" Grid.ColumnSpan="2" Margin="10,22,38,101" MouseDoubleClick="DgNFErros_MouseDoubleClick" SelectionChanged="DgNFErros_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=tb_nfe.NumeroNota}"
+                                          Width="80"
+                                          Header="Nota Fiscal"
+                                          IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Path=Data, StringFormat='dd/MM/yyyy HH:mm:ss'}"
+                                          Header="Data Envio"
+                                          IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Path=Codigo}"
+                                          Width="80"
+                                          Header=" Código Erro"
+                                          IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Path=Mensagem}"
+                                          Header="Mensagem"
+                                          IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Path=Erro}"
+                                          Header="Erro"
+                                          Foreground="Red"
+                                          IsReadOnly="True" />
+                            <DataGridTextColumn Binding ="{Binding tb_nfe.Ambiente}"
+                                          Header="Ambiente"
+                                          Foreground="Red"
+                                          IsReadOnly="True" />
+                        </DataGrid.Columns>
+                    </Controles:DataGridCustomizado>
+                    <Button x:Name="btnConsultaCEST" Content="Consultar CEST" Grid.Column="1" HorizontalAlignment="Left" Margin="537,315,0,0" VerticalAlignment="Top" Width="131" IsEnabled="False" Click="btnConsultaCEST_Click"/>
+                    <Button x:Name="btnConsultaNCM" Content="Consultar NCM" Grid.Column="1" HorizontalAlignment="Left" Margin="714,315,0,0" VerticalAlignment="Top" Width="118" IsEnabled="False" Click="btnConsultaNCM_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tbiCartaCorrecao" Header="Carta de Correção" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="127" FontWeight="Bold" Margin="-1,0,0,0">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FFF9F9F9" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Background="#FFF9F9F9">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="74*"/>
+                        <ColumnDefinition Width="221*"/>
+                        <ColumnDefinition Width="976*"/>
+                    </Grid.ColumnDefinitions>
+                    <Controles:DataGridCustomizado x:Name="dgCartas" CanUserDeleteRows="False"
+                                               IsTabStop="False"
+                                               IsReadOnly="True"
+                                               ScrollViewer.CanContentScroll="True"
+                                               ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                               ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                                               CanUserAddRows="False"
+                                               AutoGenerateColumns="False"
+                                               HorizontalAlignment="Left"
+                                               Margin="27,26,0,0"
+                                               VerticalAlignment="Top"
+                                               Height="168"
+                                               RenderTransformOrigin="0.5,0.5"
+                                               Width="1210"
+                                               Grid.ColumnSpan="3">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Número Nota"
+                                        IsReadOnly="True"
+                                        Binding="{Binding Path=tb_nf.NumeroNota}" />
+                            <DataGridTextColumn Header="Descrição"
+                                        IsReadOnly="True"
+                                        Binding="{Binding Path=Descricao}"
+                                        Width="*">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping"
+                                  Value="Wrap" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Data do Envio"
+                                        IsReadOnly="True"
+                                        Binding="{Binding Path=DataEnvio}" />
+                        </DataGrid.Columns>
+                    </Controles:DataGridCustomizado>
+                    <Button x:Name="btnGerarCartaCorrecao" Content="Gerar Carta Correção" Grid.Column="2" HorizontalAlignment="Left" Margin="772,217,0,0" VerticalAlignment="Top" Width="170"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tbiTotais" Header="Totais" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54" Margin="-4,0,0,0" FontWeight="Bold">
+                <Grid Background="#FFF7F5F5">
+                    <Controles:TextBoxCustomizado x:Name="txtTotalICMS"
+                        ExibirBotao="False"
+                        Margin="362,28,0,0"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        TabIndex="1"
+                        Width="90"
+                        TipoControle="Monetario"
+                        HorizontalAlignment="Left" IsEnabled="False" FontWeight="Normal" />
+                    <TextBlock Text="Valor do ICMS:"
+                        x:Name="lblTotalICMS"
+                        HorizontalAlignment="Left"
+                        Margin="259,28,0,0"
+                        FontWeight="Bold"
+                        VerticalAlignment="Top" />
+                    <TextBlock Text="Base de cálc do ICMS:"
+                        HorizontalAlignment="Left"
+                        Margin="9,30,0,0"
+                        FontWeight="Bold"
+                        VerticalAlignment="Top"
+                        Width="150" />
+                    <Controles:TextBoxCustomizado x:Name="txtTotalBaseICMS"
+                        ExibirBotao="False"
+                        Margin="137,30,0,0"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        Width="90"
+                        TipoControle="Monetario"
+                        HorizontalAlignment="Left"
+                        TabIndex="0" IsEnabled="False" FontWeight="Normal" />
+                    <Controles:TextBoxCustomizado x:Name="txtTotalBaseST"
+                        ExibirBotao="False"
+                        Margin="640,28,0,0"
+                        TipoControle="Monetario"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        TabIndex="1"
+                        Width="90"
+                        HorizontalAlignment="Left" IsEnabled="False" FontWeight="Normal" />
+                    <TextBlock Text="Base de cálc. do ICMS ST:"
+                        HorizontalAlignment="Left"
+                        Margin="493,28,0,0"
+                        FontWeight="Bold"
+                        VerticalAlignment="Top" />
+                    <Controles:TextBoxCustomizado x:Name="txtTotalST"
+                        ExibirBotao="False"
+                        Margin="887,32,0,0"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        TabIndex="1"
+                        Width="90"
+                        TipoControle="Monetario"
+                        HorizontalAlignment="Left" IsEnabled="False" FontWeight="Normal" />
+                    <TextBlock Text="Valor do ICMS ST:"
+                        HorizontalAlignment="Left"
+                        Margin="777,32,0,0"
+                        FontWeight="Bold"
+                        VerticalAlignment="Top" />
+                    <Controles:TextBoxCustomizado x:Name="txtValorTotalSeguro"
+                        ExibirBotao="False"
+                        Margin="362,54,0,0"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        TabIndex="1"
+                        Width="90"
+                        TipoControle="Monetario"
+                        HorizontalAlignment="Left" IsEnabled="False" FontWeight="Normal" />
+                    <TextBlock Text="Valor do Seguro:"
+                        HorizontalAlignment="Left"
+                        Margin="259,54,0,0"
+                        FontWeight="Bold"
+                        VerticalAlignment="Top" />
+                    <TextBlock Text="Valor do Frete:"
+                        HorizontalAlignment="Left"
+                        Margin="9,56,0,0"
+                        FontWeight="Bold"
+                        VerticalAlignment="Top"
+                        Width="93" />
+                    <Controles:TextBoxCustomizado x:Name="txtTotalFrete"
+                        ExibirBotao="False"
+                        Margin="137,56,0,0"
+                        MaxLength="80"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        Width="90"
+                        TipoControle="Monetario"
+                        HorizontalAlignment="Left"
+                        TabIndex="0" IsEnabled="False" FontWeight="Normal" />
+                    <Controles:TextBoxCustomizado x:Name="txtTotalDesconto"
+                        ExibirBotao="False"
+                        Margin="640,54,0,0"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        TabIndex="1"
+                        Width="90"
+                        TipoControle="Monetario"
+                        HorizontalAlignment="Left" IsEnabled="False" FontWeight="Normal" />
+                    <TextBlock Text="Valor Total do Desconto:"
+                        HorizontalAlignment="Left"
+                        Margin="493,54,0,0"
+                        FontWeight="Bold"
+                        VerticalAlignment="Top" />
+                    <Controles:TextBoxCustomizado x:Name="txtTotalDespesas"
+                        ExibirBotao="False"
+                        Margin="887,58,0,0"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        TabIndex="1"
+                        Width="90"
+                        TipoControle="Monetario"
+                        HorizontalAlignment="Left" IsEnabled="False" FontWeight="Normal" />
+                    <TextBlock Text="Outras Despesas:"
+                        HorizontalAlignment="Left"
+                        Margin="777,58,0,0"
+                        FontWeight="Bold"
+                        VerticalAlignment="Top" />
+                    <Controles:TextBoxCustomizado x:Name="txtTotalCOFINS"
+                        ExibirBotao="False"
+                        Margin="640,80,0,0"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        TabIndex="1"
+                        Width="90"
+                        TipoControle="Monetario"
+                        HorizontalAlignment="Left" IsEnabled="False" FontWeight="Normal" />
+                    <TextBlock Text="Valor Total da COFINS:"
+                        HorizontalAlignment="Left"
+                        Margin="493,80,0,0"
+                        FontWeight="Bold"
+                        VerticalAlignment="Top" />
+                    <TextBlock Text="Valor Total IPI:"
+                        HorizontalAlignment="Left"
+                        Margin="259,80,0,0"
+                        FontWeight="Bold"
+                        VerticalAlignment="Top"
+                        RenderTransformOrigin="-1.184,-1.077"
+                        Width="111" />
+                    <Controles:TextBoxCustomizado x:Name="txtTotalIPI"
+                        ExibirBotao="False"
+                        Margin="362,80,0,0"
+                        MaxLength="80"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        TipoControle="Monetario"
+                        Width="90"
+                        HorizontalAlignment="Left"
+                        TabIndex="0" IsEnabled="False" FontWeight="Normal" />
+                    <Controles:TextBoxCustomizado x:Name="txtTotalProdutos"
+                        ExibirBotao="False"
+                        Margin="887,84,0,0"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        TabIndex="1"
+                        Width="90"
+                        TipoControle="Monetario"
+                        HorizontalAlignment="Left" IsEnabled="False" FontWeight="Normal" />
+                    <TextBlock Text="Total Produtos:"
+                        HorizontalAlignment="Left"
+                        Margin="777,84,0,0"
+                        FontWeight="Bold"
+                        VerticalAlignment="Top" />
+                    <Controles:TextBoxCustomizado x:Name="txtTotalPIS"
+                        ExibirBotao="False"
+                        Margin="137,83,0,0"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        TabIndex="1"
+                        Width="90"
+                        TipoControle="Monetario"
+                        HorizontalAlignment="Left" IsEnabled="False" FontWeight="Normal" />
+                    <TextBlock Text="Valor Total PIS:"
+                        HorizontalAlignment="Left"
+                        Margin="9,82,0,0"
+                        FontWeight="Bold"
+                        VerticalAlignment="Top" />
+                    <Controles:TextBoxCustomizado x:Name="txtTotalNotaAbaTotais"
+                        ExibirBotao="false"
+                        Margin="137,109,0,0"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        TabIndex="1"
+                        Width="90"
+                        TipoControle="Monetario"
+                        HorizontalAlignment="Left" IsEnabled="False" FontWeight="Normal" />
+                    <TextBlock Text="Valor Total da Nota:"
+                        HorizontalAlignment="Left"
+                        Margin="9,109,0,0"
+                        FontWeight="Bold"
+                        VerticalAlignment="Top" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="992,577,0,0" TextWrapping="Wrap" Text="Valor Total da Nota:" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="txtValorTotalNota" HorizontalAlignment="Left" Height="23" Margin="1116,575,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" IsEnabled="False"/>
+        <TextBox x:Name="txtOrigemNfe" HorizontalAlignment="Left" Height="23" Margin="385,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" BorderBrush="White" FontWeight="Bold"/>
+        <Button x:Name="btnNovaNfe" Content="Nova NF-e" HorizontalAlignment="Left" Margin="761,13,0,0" VerticalAlignment="Top" Width="85" Click="btnNovaNfe_Click"/>
+    </Grid>
+</src:usrBase>
